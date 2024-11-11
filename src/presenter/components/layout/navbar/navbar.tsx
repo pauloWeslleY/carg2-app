@@ -31,7 +31,7 @@ export function NavBar() {
     <chakra.header h="full" bg={bg} w="full" px={{ base: 2, sm: 4 }} py={4}>
       <Flex alignItems="center" justifyContent="space-between" mx="auto">
         <HStack gap="5" alignItems="center">
-          <Image src="/public/logotipo.svg" w="40" h="10" />
+          <Image src="/logotipo.svg" w="40" h="10" />
 
           <Box display={{ base: "none", md: "inline-flex" }}>
             <HStack spacing={1}>

@@ -22,7 +22,6 @@ export function FormCreateDriverTruck(props: FormCreateDriverProps) {
     register,
     handlerAddTrip,
     handlerCreateDriverTruck,
-    seedDriverTrucks,
   } = props;
 
   return (
@@ -143,9 +142,9 @@ export function FormCreateDriverTruck(props: FormCreateDriverProps) {
       )}
 
       <Flex alignSelf="end" align="center" gap="3" mt="5">
-        <Button variant="outline" onClick={seedDriverTrucks}>
+        {/* <Button variant="outline" onClick={seedDriverTrucks}>
           Salvar (Seed)
-        </Button>
+        </Button> */}
         <Button
           colorScheme="teal"
           variant="solid"
