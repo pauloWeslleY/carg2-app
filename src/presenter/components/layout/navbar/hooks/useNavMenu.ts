@@ -6,11 +6,15 @@ import {
   ShieldCheckIcon,
 } from "lucide-react";
 import { SubMenuType } from "../types/nav-menu.type";
-import { useAppDispatch } from "@/main/store/hook/useRedux";
-import { loadAuthSignOut } from "@/main/store/ducks/auth";
+import { useAppDispatch, useAppSelector } from "@/main/store/hook/useRedux";
+import { loadAuthSignOut, useStateAuth } from "@/main/store/ducks/auth";
 import { useNavigate } from "react-router-dom";
+import { useColorMode, useDisclosure } from "@chakra-ui/react";
 
 export function useNavMenu() {
+  const { toggleColorMode } = useColorMode();
+  const { user } = useAppSelector(useStateAuth);
+  const mobileNav = useDisclosure();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -53,7 +57,10 @@ export function useNavMenu() {
   }
 
   return {
+    user,
+    mobileNav,
     loadSubMenu,
     handlerLogout,
+    toggleColorMode,
   };
 }

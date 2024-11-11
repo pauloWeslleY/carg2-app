@@ -7,25 +7,20 @@ import {
   IconButton,
   Image,
   Text,
-  useColorMode,
   useColorModeValue,
-  useDisclosure,
   VStack,
 } from "@chakra-ui/react";
 import { SunIcon, MoonIcon, MenuIcon, ChevronDownIcon } from "lucide-react";
 import { NavBarMobile } from "./navbar-mobile";
 import { NavBarSubMenu } from "./navbar-sub-menu";
-import { useAppSelector } from "@/main/store/hook/useRedux";
-import { useStateAuth } from "@/main/store/ducks/auth";
+import { useNavMenu } from "./hooks/useNavMenu";
 
 export function NavBar() {
-  const { toggleColorMode } = useColorMode();
-  const mobileNav = useDisclosure();
   const bg = useColorModeValue("green.100", "gray.900");
   const cl = useColorModeValue("green.900", "green.200");
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(MoonIcon, SunIcon);
-  const { user } = useAppSelector(useStateAuth);
+  const { user, mobileNav, toggleColorMode } = useNavMenu();
 
   return (
     <chakra.header h="full" bg={bg} w="full" px={{ base: 2, sm: 4 }} py={4}>

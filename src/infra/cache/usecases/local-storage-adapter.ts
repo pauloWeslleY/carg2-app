@@ -3,7 +3,9 @@ import { IStorage } from "../interfaces/storage.interfaces";
 export class LocalStorageGetAdapter<T> implements IStorage.Get<T> {
   get(key: string): T | null {
     const value = localStorage.getItem(key);
+
     if (value) return JSON.parse(value);
+
     return null;
   }
 }

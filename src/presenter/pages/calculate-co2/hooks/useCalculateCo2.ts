@@ -1,3 +1,4 @@
+import { makeNotifyToast } from "@/main/factories/notify-toast";
 import {
   loadCreateEmissionCo2,
   useStateEmissionCo2,
@@ -36,6 +37,12 @@ export function useCalculateCo2() {
   }
 
   function handlerCreateEmissionCo2() {
+    const notify = makeNotifyToast();
+    if (emission.distanceKm === 0 || loadCalculateCarbonEmissions === 0) {
+      notify.warning({ title: "Informe os número para o calculo" });
+      return;
+    }
+
     const emissionCO2 = {
       distanceKM: emission.distanceKm,
       co2: loadCalculateCarbonEmissions,

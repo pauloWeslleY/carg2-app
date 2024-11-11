@@ -60,7 +60,7 @@ export function CalculateEmissionReductionCo2(
       </Flex>
 
       <Flex gap="2" mt="10" align="center" flexDir={["column", "row"]}>
-        <Flex gap="3" w={["full", "xl"]} flexDir={["column", "row"]}>
+        <Flex gap="3" w={["full", "3xl"]} flexDir={["column"]}>
           <Flex align="center" gap="3.5" flexDir={["column", "row"]}>
             <Input
               label="Distância percorrida em (KM)"

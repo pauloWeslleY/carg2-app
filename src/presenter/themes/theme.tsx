@@ -10,7 +10,7 @@ import { GlobalStyles } from "./global-styles";
 
 export function ThemeCustomization({ children }: { children: ReactNode }) {
   const { ToastContainer } = createStandaloneToast();
-  // const fontFamilyPoppins = `'Poppins', sans-serif`;
+  const fontFamilyPoppins = `'Poppins', sans-serif`;
 
   const theme = extendTheme({
     config: {
@@ -23,15 +23,15 @@ export function ThemeCustomization({ children }: { children: ReactNode }) {
         body: {
           bg: props.colorMode === "dark" ? "gray.800" : "whiteAlpha.200",
           color: props.colorMode === "dark" ? "green.400" : "green.700",
-          fontFamily: `'Poppins', sans-serif`,
+          fontFamily: fontFamilyPoppins,
           webkitFontSmoothing: "antialiased",
           textRendering: "optimizeLegibility",
         },
       }),
     },
     fonts: {
-      poppins: `'Poppins', sans-serif`,
-      body: `'Poppins', sans-serif`,
+      poppins: fontFamilyPoppins,
+      body: fontFamilyPoppins,
     },
   });
 

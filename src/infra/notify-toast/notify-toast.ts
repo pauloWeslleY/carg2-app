@@ -11,7 +11,18 @@ export interface INotifyToast {
   error(message: INotifyToastParams): void;
 }
 
-const { toast } = createStandaloneToast();
+const { toast } = createStandaloneToast({
+  defaultOptions: {
+    duration: 9000,
+    isClosable: true,
+    variant: "left-accent",
+    position: "top",
+    containerStyle: {
+      color: "gray.900",
+      _dark: { color: "gray.200" },
+    },
+  },
+});
 
 export class NotifyToast implements INotifyToast {
   success(message: INotifyToastParams): void {
@@ -19,11 +30,6 @@ export class NotifyToast implements INotifyToast {
       title: message.title,
       description: message.description ?? null,
       status: "success",
-      duration: 9000,
-      isClosable: true,
-      position: "top",
-      variant: "left-accent",
-      colorScheme: "green",
     });
   }
   warning(message: INotifyToastParams): void {
@@ -31,11 +37,6 @@ export class NotifyToast implements INotifyToast {
       title: message.title,
       description: message.description ?? null,
       status: "warning",
-      duration: 9000,
-      isClosable: true,
-      position: "top",
-      variant: "left-accent",
-      colorScheme: "yellow",
     });
   }
   error(message: INotifyToastParams): void {
@@ -43,11 +44,6 @@ export class NotifyToast implements INotifyToast {
       title: message.title,
       description: message.description ?? null,
       status: "error",
-      duration: 9000,
-      isClosable: true,
-      position: "top",
-      variant: "left-accent",
-      colorScheme: "red",
     });
   }
 }
