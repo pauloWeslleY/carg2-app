@@ -31,7 +31,7 @@ export function NavBarSubMenu() {
           bg: "gray.900",
         }}
       >
-        {loadSubMenu.map((menu, i) => {
+        {loadSubMenu.slice(0, 2).map((menu, i) => {
           return <NavBarSubMenuItem key={i} menu={menu} />;
         })}
       </SimpleGrid>
