@@ -45,8 +45,13 @@ export function CalculateEmissionCo2(props: CalculateEmissionCo2Props) {
         </Text>
       </Flex>
 
-      <Flex gap="2" mt="10" align="center">
-        <Flex align="center" w="xl" gap="3.5">
+      <Flex gap="2" mt="10" align="center" flexDir={["column", "row"]}>
+        <Flex
+          align="center"
+          w={["full", "xl"]}
+          gap="3.5"
+          flexDir={["column", "row"]}
+        >
           <Input
             label="Distância percorrida em (KM)"
             placeholder="Informe distância"
@@ -65,7 +70,12 @@ export function CalculateEmissionCo2(props: CalculateEmissionCo2Props) {
           />
         </Flex>
 
-        <Flex gap="2" flexDir="row" align="center" alignSelf="flex-end">
+        <Flex
+          gap="2"
+          align="center"
+          flexDir={["column", "row"]}
+          alignSelf={["center", "flex-end"]}
+        >
           <Box
             w="auto"
             h="auto"
@@ -84,6 +94,7 @@ export function CalculateEmissionCo2(props: CalculateEmissionCo2Props) {
           </Box>
 
           <Button
+            w={["full", "auto"]}
             variant="outline"
             colorScheme="teal"
             onClick={handlerCreateEmissionCo2}

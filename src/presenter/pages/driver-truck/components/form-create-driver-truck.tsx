@@ -49,7 +49,7 @@ export function FormCreateDriverTruck(props: FormCreateDriverProps) {
 
       {!isLoading && (
         <Flex flexDir="column" gap="0.5">
-          <Flex gap="5">
+          <Flex gap="5" flexDir={["column", "row"]}>
             <Input
               {...register("name")}
               label="Nome"
@@ -77,7 +77,7 @@ export function FormCreateDriverTruck(props: FormCreateDriverProps) {
           </Flex>
 
           <Flex flexDir="column" gap="2" mt="2%">
-            <Flex flexDir="row" gap="1.5">
+            <Flex flexDir={["column", "row"]} gap="1.5">
               <Input
                 ref={inputTripsRef}
                 label="Viagens"
@@ -87,6 +87,7 @@ export function FormCreateDriverTruck(props: FormCreateDriverProps) {
               <Button
                 variant="outline"
                 alignSelf="end"
+                w={["full", "auto"]}
                 onClick={handlerAddTrip}
               >
                 Adicionar Viagem
@@ -110,7 +111,7 @@ export function FormCreateDriverTruck(props: FormCreateDriverProps) {
             </HStack>
           </Flex>
 
-          <Flex gap="5" mt="2%">
+          <Flex gap="5" flexDir={["column", "row"]} mt="2%">
             <Input
               {...register("totalKmDriven")}
               label="KM Rodados"

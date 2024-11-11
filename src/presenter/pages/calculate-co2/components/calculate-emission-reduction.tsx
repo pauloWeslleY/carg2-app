@@ -59,9 +59,9 @@ export function CalculateEmissionReductionCo2(
         </Text>
       </Flex>
 
-      <Flex gap="2" mt="10" align="center">
-        <Flex flexDir="column" gap="3" w="3xl">
-          <Flex align="center" gap="3.5">
+      <Flex gap="2" mt="10" align="center" flexDir={["column", "row"]}>
+        <Flex gap="3" w={["full", "xl"]} flexDir={["column", "row"]}>
+          <Flex align="center" gap="3.5" flexDir={["column", "row"]}>
             <Input
               label="Distância percorrida em (KM)"
               placeholder="Informe distância"
@@ -79,7 +79,7 @@ export function CalculateEmissionReductionCo2(
               onChange={handlerChangeInputEmissionOriginal}
             />
           </Flex>
-          <Flex align="center" gap="3.5">
+          <Flex align="center" gap="3.5" flexDir={["column", "row"]}>
             <Input
               label="Distância percorrida em (KM) Optimizada"
               placeholder="Informe distância"
@@ -99,7 +99,7 @@ export function CalculateEmissionReductionCo2(
           </Flex>
         </Flex>
 
-        <Flex gap="2" flexDir="row" align="center" pt="8">
+        <Flex gap="2" align="center" pt="8" flexDir={["column", "row"]}>
           <Flex flexDir="column" gap="2">
             <EmissionResult
               title="Emissão de CO₂"
@@ -112,6 +112,7 @@ export function CalculateEmissionReductionCo2(
           </Flex>
 
           <Button
+            w={["full", "auto"]}
             variant="outline"
             colorScheme="teal"
             onClick={handlerCreateEmissionCo2Reduction}

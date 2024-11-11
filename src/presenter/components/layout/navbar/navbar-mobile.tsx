@@ -1,10 +1,12 @@
 import {
   Button,
   CloseButton,
+  Icon,
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import { HouseIcon, VideoIcon, InboxIcon } from "lucide-react";
+import { useNavMenu } from "./hooks/useNavMenu";
+import { useNavigate } from "react-router-dom";
 
 type NavBarMobileProps = {
   isOpen: boolean;
@@ -12,6 +14,8 @@ type NavBarMobileProps = {
 };
 
 export function NavBarMobile({ isOpen, onClose }: NavBarMobileProps) {
+  const { loadSubMenu } = useNavMenu();
+  const navigate = useNavigate();
   const bg = useColorModeValue("whiteAlpha.800", "gray.900");
 
   return (
@@ -24,31 +28,45 @@ export function NavBarMobile({ isOpen, onClose }: NavBarMobileProps) {
       flexDirection="column"
       p={2}
       pb={4}
-      m={2}
       bg={bg}
       spacing={3}
       rounded="sm"
       shadow="sm"
+      zIndex={1}
     >
       <CloseButton
         aria-label="Close menu"
         justifySelf="self-start"
         onClick={onClose}
       />
-      <Button w="full" variant="ghost" leftIcon={<HouseIcon />}>
-        Dashboard
-      </Button>
-      <Button
-        w="full"
-        variant="solid"
-        colorScheme="brand"
-        leftIcon={<InboxIcon />}
-      >
-        Inbox
-      </Button>
-      <Button w="full" variant="ghost" leftIcon={<VideoIcon />}>
-        Videos
-      </Button>
+
+      {loadSubMenu.slice(0, 2).map((menu) => {
+        return (
+          <Button
+            key={menu.title}
+            onClick={() => {
+              navigate(menu.to);
+              onClose();
+            }}
+            w="full"
+            variant="ghost"
+            leftIcon={
+              menu.icon && (
+                <Icon
+                  flexShrink="0"
+                  h="6"
+                  w="6"
+                  color="green.700"
+                  _dark={{ color: "green.50" }}
+                  as={menu.icon}
+                />
+              )
+            }
+          >
+            {menu.title}
+          </Button>
+        );
+      })}
     </VStack>
   );
 }

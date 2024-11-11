@@ -78,25 +78,29 @@ export function TableCo2({ header, data }: TableCo2Props) {
                 gridGap: "10px",
               }}
             >
-              <Td
-                display={{
-                  base: "table-cell",
-                  md: "none",
-                }}
-                sx={{
-                  "@media print": {
-                    display: "none",
-                  },
-                  textTransform: "uppercase",
-                  color: color1,
-                  fontSize: "xs",
-                  fontWeight: "bold",
-                  letterSpacing: "wider",
-                  fontFamily: "heading",
-                }}
-              >
-                {emission.co2}
-              </Td>
+              {header.map((header) => (
+                <Td
+                  key={header}
+                  display={{
+                    base: "table-cell",
+                    md: "none",
+                  }}
+                  sx={{
+                    "@media print": {
+                      display: "none",
+                    },
+                    textTransform: "uppercase",
+                    color: color1,
+                    fontSize: "xs",
+                    fontWeight: "bold",
+                    letterSpacing: "wider",
+                    fontFamily: "heading",
+                  }}
+                >
+                  {header}
+                </Td>
+              ))}
+
               <Td fontSize="md" fontWeight="normal">
                 {emission.distanceKM} (KM)
               </Td>

@@ -83,9 +83,9 @@ export function TableDriverTruck(props: TableDriverTruckProps) {
             >
               {(
                 Object.keys(driverTruck) as Array<keyof TableDriverTruckType>
-              ).map((x) => {
+              ).map((driver) => {
                 return (
-                  <React.Fragment key={`${driverTruck.id}${x}`}>
+                  <React.Fragment key={`${driverTruck.id}${driver}`}>
                     <Td
                       display={{
                         base: "table-cell",
@@ -103,10 +103,10 @@ export function TableDriverTruck(props: TableDriverTruckProps) {
                         fontFamily: "poppins",
                       }}
                     >
-                      {x}
+                      {driver}
                     </Td>
                     <Td fontSize="md" fontWeight="normal">
-                      {driverTruck[x]}
+                      {driverTruck[driver]}
                     </Td>
                   </React.Fragment>
                 );
