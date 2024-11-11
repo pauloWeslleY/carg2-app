@@ -1,0 +1,130 @@
+[
+  {
+    "id": "001",
+    "name": "João",
+    "lastName": "Silva",
+    "email": "joao.silva@gamil.com",
+    "trips": [
+      "São Paulo - Rio de Janeiro",
+      "Rio de Janeiro - Belo Horizonte",
+      "Belo Horizonte - Brasília"
+    ],
+    "totalKmDriven": 1250.5,
+    "CPF": "123.456.789-00",
+    "CNH": "987654321",
+    "createAt": "2023-01-15T08:30:00Z"
+  },
+  {
+    "id": "002",
+    "name": "Maria",
+    "lastName": "Oliveira",
+    "email": "maria.oliveira@gamil.com",
+    "trips": ["Curitiba - Florianópolis", "Florianópolis - Porto Alegre"],
+    "totalKmDriven": 980.3,
+    "CPF": "234.567.890-01",
+    "CNH": "876543210",
+    "createAt": "2023-02-20T12:45:00Z"
+  },
+  {
+    "id": "003",
+    "name": "Carlos",
+    "lastName": "Pereira",
+    "email": "carlos.pereira@gamil.com",
+    "trips": [
+      "Recife - João Pessoa",
+      "João Pessoa - Natal",
+      "Natal - Fortaleza",
+      "Fortaleza - Teresina"
+    ],
+    "totalKmDriven": 1420.0,
+    "CPF": "345.678.901-23",
+    "CNH": "765432109",
+    "createAt": "2023-03-05T14:00:00Z"
+  },
+  {
+    "id": "004",
+    "name": "Ana",
+    "lastName": "Souza",
+    "email": "ana.souza@gamil.com",
+    "trips": ["Salvador - Aracaju"],
+    "totalKmDriven": 210.7,
+    "CPF": "456.789.012-34",
+    "CNH": "654321098",
+    "createAt": "2023-04-12T09:15:00Z"
+  },
+  {
+    "id": "005",
+    "name": "Pedro",
+    "lastName": "Almeida",
+    "email": "pedro.almeida@gamil.com",
+    "trips": ["São Paulo - Campinas", "Campinas - Ribeirão Preto"],
+    "totalKmDriven": 785.9,
+    "CPF": "567.890.123-45",
+    "CNH": "543210987",
+    "createAt": "2023-05-17T10:00:00Z"
+  },
+  {
+    "id": "006",
+    "name": "Fernanda",
+    "lastName": "Costa",
+    "email": "fernanda.costa@gamil.com",
+    "trips": ["Brasília - Goiânia", "Goiânia - Cuiabá", "Cuiabá - Porto Velho"],
+    "totalKmDriven": 1150.2,
+    "CPF": "678.901.234-56",
+    "CNH": "432109876",
+    "createAt": "2023-06-23T13:30:00Z"
+  },
+  {
+    "id": "007",
+    "name": "Ricardo",
+    "lastName": "Lima",
+    "email": "ricardo.lima@gamil.com",
+    "trips": ["Manaus - Boa Vista"],
+    "totalKmDriven": 330.4,
+    "CPF": "789.012.345-67",
+    "CNH": "321098765",
+    "createAt": "2023-07-01T15:20:00Z"
+  },
+  {
+    "id": "008",
+    "name": "Juliana",
+    "lastName": "Mendes",
+    "email": "juliana.mendes@gamil.com",
+    "trips": [
+      "Fortaleza - Sobral",
+      "Sobral - Teresina",
+      "Teresina - São Luís",
+      "São Luís - Belém"
+    ],
+    "totalKmDriven": 1425.3,
+    "CPF": "890.123.456-78",
+    "CNH": "210987654",
+    "createAt": "2023-08-08T11:40:00Z"
+  },
+  {
+    "id": "009",
+    "name": "Lucas",
+    "lastName": "Ribeiro",
+    "email": "lucas.ribeiro@gamil.com",
+    "trips": ["São Paulo - Santos", "Santos - Guarujá"],
+    "totalKmDriven": 900.0,
+    "CPF": "901.234.567-89",
+    "CNH": "109876543",
+    "createAt": "2023-09-14T14:55:00Z"
+  },
+  {
+    "id": "010",
+    "name": "Patrícia",
+    "lastName": "Ferreira",
+    "email": "patricia.ferreira@gamil.com",
+    "trips": [
+      "Belo Horizonte - Vitória",
+      "Vitória - Rio de Janeiro",
+      "Rio de Janeiro - Niterói"
+    ],
+    "totalKmDriven": 1605.8,
+    "CPF": "012.345.678-90",
+    "CNH": "098765432",
+    "createAt": "2023-10-21T08:05:00Z"
+  }
+]
