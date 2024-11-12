@@ -13,7 +13,7 @@ export function App() {
   }, [dispatch]);
 
   if (pathname === "/") {
-    return <Navigate to="/driver-truck" />;
+    return <Navigate to="/calculate-co2" />;
   }
 
   return (

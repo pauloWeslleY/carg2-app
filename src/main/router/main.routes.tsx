@@ -4,7 +4,6 @@ import { AuthRegister } from "@/presenter/pages/authentication/register";
 import { PrivateRoute } from "./private.routes";
 import { DriverTruck } from "@/presenter/pages/driver-truck/driver-truck";
 import { CalculateCo2 } from "@/presenter/pages/calculate-co2/calculate-co2";
-import { Truck } from "@/presenter/pages/truck/truck";
 
 export function MainRoutes() {
   const router = createBrowserRouter(
@@ -17,7 +16,6 @@ export function MainRoutes() {
         children: [
           { path: "driver-truck", element: <DriverTruck /> },
           { path: "calculate-co2", element: <CalculateCo2 /> },
-          { path: "truck", element: <Truck /> },
         ],
       },
     ],
