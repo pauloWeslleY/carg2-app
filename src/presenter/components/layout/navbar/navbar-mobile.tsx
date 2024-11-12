@@ -1,8 +1,9 @@
 import {
   Button,
   CloseButton,
+  HStack,
   Icon,
-  useColorModeValue,
+  Image,
   VStack,
 } from "@chakra-ui/react";
 import { useNavMenu } from "./hooks/useNavMenu";
@@ -16,7 +17,6 @@ type NavBarMobileProps = {
 export function NavBarMobile({ isOpen, onClose }: NavBarMobileProps) {
   const { loadSubMenu } = useNavMenu();
   const navigate = useNavigate();
-  const bg = useColorModeValue("whiteAlpha.800", "gray.900");
 
   return (
     <VStack
@@ -24,21 +24,26 @@ export function NavBarMobile({ isOpen, onClose }: NavBarMobileProps) {
       top={0}
       left={0}
       right={0}
-      display={isOpen ? "flex" : "none"}
+      h={isOpen ? "300px" : "0"}
+      transition="height .2s ease-in-out"
+      transform={`translateY(${isOpen ? "0" : "-300px"})`}
       flexDirection="column"
-      p={2}
-      pb={4}
-      bg={bg}
+      justify="center"
+      gap="6"
+      p="2"
+      pb="4"
+      bg="green.100"
+      _dark={{
+        bg: "gray.900",
+      }}
       spacing={3}
       rounded="sm"
       shadow="sm"
       zIndex={1}
     >
-      <CloseButton
-        aria-label="Close menu"
-        justifySelf="self-start"
-        onClick={onClose}
-      />
+      <HStack>
+        <Image src="/logotipo.svg" w="40" h="10" />
+      </HStack>
 
       {loadSubMenu.slice(0, 2).map((menu) => {
         return (
@@ -67,6 +72,12 @@ export function NavBarMobile({ isOpen, onClose }: NavBarMobileProps) {
           </Button>
         );
       })}
+
+      <CloseButton
+        aria-label="Close menu"
+        justifySelf="self-start"
+        onClick={onClose}
+      />
     </VStack>
   );
 }

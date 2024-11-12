@@ -16,7 +16,7 @@ import { useCalculateEmissionReductionCo2 } from "./hooks/useCalculateEmissionRe
 export function CalculateCo2() {
   return (
     <Container maxW="8xl">
-      <Tabs variant="enclosed" colorScheme="green" mt="2%">
+      <Tabs variant="enclosed" colorScheme="green" mt="4%">
         <TabList>
           <Tab>Calcular Taxa de Emissão de CO2</Tab>
           <Tab>Calcular Redução de Emissão de CO2 </Tab>

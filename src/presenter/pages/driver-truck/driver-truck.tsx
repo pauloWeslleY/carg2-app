@@ -16,7 +16,7 @@ export function DriverTruck() {
 
   return (
     <Container maxW="8xl">
-      <Tabs variant="enclosed" colorScheme="green" mt="10">
+      <Tabs variant="enclosed" colorScheme="green" mt="4%">
         <TabList>
           {navTab.map((tab, index) => {
             return <Tab key={index}>{tab}</Tab>;
