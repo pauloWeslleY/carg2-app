@@ -4,6 +4,7 @@ import {
   chakra,
   Flex,
   HStack,
+  Icon,
   IconButton,
   Image,
   Text,
@@ -20,7 +21,14 @@ export function NavBar() {
   const cl = useColorModeValue("green.900", "green.200");
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(MoonIcon, SunIcon);
-  const { user, mobileNav, toggleColorMode } = useNavMenu();
+  const {
+    openMenu,
+    user,
+    mobileNav,
+    toggleColorMode,
+    handlerOpenMenu,
+    handlerCloseMenu,
+  } = useNavMenu();
 
   return (
     <chakra.header h="full" bg={bg} w="full" px={{ base: 2, sm: 4 }} py={4}>
@@ -30,15 +38,32 @@ export function NavBar() {
 
           <Box display={{ base: "none", md: "inline-flex" }}>
             <HStack spacing={1}>
-              <Box role="group">
+              <Box
+                role="group"
+                transition="all 0.6s ease-in-out"
+                onMouseEnter={handlerOpenMenu}
+                onMouseLeave={handlerCloseMenu}
+              >
                 <Button
-                  bg={bg}
-                  color="gray.500"
+                  bg="whiteAlpha.500"
+                  color="gray.900"
+                  _dark={{
+                    color: "green.500",
+                    bg: "whiteAlpha.100",
+                  }}
                   alignItems="center"
                   fontSize="md"
+                  transition="all 0.2s ease-in-out"
                   _hover={{ color: cl }}
                   _focus={{ boxShadow: "none" }}
-                  rightIcon={<ChevronDownIcon />}
+                  rightIcon={
+                    <Icon
+                      as={ChevronDownIcon}
+                      boxSize="5"
+                      transform={`rotate(${openMenu ? "0" : "-90deg"})`}
+                      transition="transform 0.2s ease-in-out"
+                    />
+                  }
                 >
                   Dados da Api
                 </Button>
@@ -46,9 +71,13 @@ export function NavBar() {
                   pos="absolute"
                   left={0}
                   w="full"
-                  display="none"
-                  _groupHover={{ display: "block" }}
-                  zIndex={2}
+                  transform="translateY(-300px)"
+                  transition="all 0.2s ease-in-out"
+                  _groupHover={{
+                    transform: "translateY(0)",
+                    zIndex: 1,
+                  }}
+                  zIndex="hide"
                 >
                   <NavBarSubMenu />
                 </Box>

@@ -19,7 +19,6 @@ export class RemoteDriverTruckInfo implements IDriverTruckInfo {
   }
 
   async getDriverTruckInfo(driverTruckId: string): Promise<DriverModel> {
-    console.log("getDriverTruckInfo", driverTruckId);
     try {
       const driverTruckDoc = await getDoc(
         doc(this.database.getDB(), COLLECTION.driverTruck, driverTruckId)

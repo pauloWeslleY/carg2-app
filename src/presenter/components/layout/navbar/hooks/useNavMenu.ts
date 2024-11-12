@@ -10,8 +10,10 @@ import { useAppDispatch, useAppSelector } from "@/main/store/hook/useRedux";
 import { loadAuthSignOut, useStateAuth } from "@/main/store/ducks/auth";
 import { useNavigate } from "react-router-dom";
 import { useColorMode, useDisclosure } from "@chakra-ui/react";
+import { MouseEvent, useState } from "react";
 
 export function useNavMenu() {
+  const [openMenu, setOpenMenu] = useState(false);
   const { toggleColorMode } = useColorMode();
   const { user } = useAppSelector(useStateAuth);
   const mobileNav = useDisclosure();
@@ -56,11 +58,26 @@ export function useNavMenu() {
     navigate("/login");
   }
 
+  function handlerOpenMenu(event: MouseEvent<HTMLDivElement>) {
+    if (event.type === "mouseenter") {
+      setOpenMenu(true);
+    }
+  }
+
+  function handlerCloseMenu(event: MouseEvent<HTMLDivElement>) {
+    if (event.type === "mouseleave") {
+      setOpenMenu(false);
+    }
+  }
+
   return {
     user,
     mobileNav,
     loadSubMenu,
     handlerLogout,
     toggleColorMode,
+    handlerOpenMenu,
+    handlerCloseMenu,
+    openMenu,
   };
 }

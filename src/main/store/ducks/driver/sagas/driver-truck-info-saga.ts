@@ -14,7 +14,6 @@ import { PayloadAction } from "@reduxjs/toolkit";
 const notifyToast = makeNotifyToast();
 function* loadDriverTruckInfoSaga(action: PayloadAction<{ id: string }>) {
   yield put(setDriverTruckInfoPending(true));
-  console.log("saga", action.payload.id);
 
   try {
     const data: DriverModel = yield call(
