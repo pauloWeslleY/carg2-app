@@ -4,6 +4,7 @@ import {
   useStateEmissionCo2Optimized,
 } from "@/main/store/ducks/emission-co2";
 import { useAppDispatch, useAppSelector } from "@/main/store/hook/useRedux";
+import { Co2 } from "@/presenter/constants/co2-per-liter";
 import { ChangeEvent, useMemo, useState } from "react";
 
 export function useCalculateEmissionReductionCo2() {
@@ -18,24 +19,27 @@ export function useCalculateEmissionReductionCo2() {
   const { isLoading } = useAppSelector(useStateEmissionCo2Optimized);
   const dispatch = useAppDispatch();
 
-  const { loadOriginalEmissions, loadEmissionCo2Reduction } = useMemo(() => {
-    const loadOriginalEmissions =
-      emissionOriginal.distanceKm * emissionOriginal.vehicleEmissionFactor;
+  const { totalCO2Emission, loadEmissionCo2Reduction } = useMemo(() => {
+    const CO2_PER_LITER = Co2.PER_LITER; // Emissão em kg de CO2 por litro de diesel
+    const fuelUsed =
+      emissionOriginal.distanceKm / emissionOriginal.vehicleEmissionFactor;
+    const totalCO2Emission = fuelUsed * CO2_PER_LITER;
+
     const optimizedEmissions =
       emissionOptimized.distanceKmOptimized *
       emissionOptimized.vehicleEmissionFactorOptimized;
     // Potencial de redução de emissões
-    const loadEmissionCo2Reduction = loadOriginalEmissions - optimizedEmissions;
+    const loadEmissionCo2Reduction = totalCO2Emission - optimizedEmissions;
 
     if (isNaN(loadEmissionCo2Reduction)) {
       return {
-        loadOriginalEmissions: 0,
+        totalCO2Emission: 0,
         loadEmissionCo2Reduction: 0,
       };
     }
 
     return {
-      loadOriginalEmissions,
+      totalCO2Emission,
       loadEmissionCo2Reduction,
     };
   }, [emissionOriginal, emissionOptimized]);
@@ -80,7 +84,7 @@ export function useCalculateEmissionReductionCo2() {
     isLoading,
     emissionOriginal,
     emissionOptimized,
-    loadOriginalEmissions,
+    totalCO2Emission,
     loadEmissionCo2Reduction,
     handlerChangeInputEmissionOriginal,
     handlerChangeInputEmissionOptimized,

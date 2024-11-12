@@ -16,7 +16,7 @@ export function CalculateEmissionReductionCo2(
     isLoading,
     emissionOriginal,
     emissionOptimized,
-    loadOriginalEmissions,
+    totalCO2Emission,
     loadEmissionCo2Reduction,
     handlerCreateEmissionCo2Reduction,
     handlerChangeInputEmissionOriginal,
@@ -103,7 +103,7 @@ export function CalculateEmissionReductionCo2(
           <Flex flexDir="column" gap="2">
             <EmissionResult
               title="Emissão de CO₂"
-              resultEmission={loadOriginalEmissions}
+              resultEmission={totalCO2Emission}
             />
             <EmissionResult
               title="Emissão de CO₂ Optimizada"
